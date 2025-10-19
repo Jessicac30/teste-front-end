@@ -1,4 +1,5 @@
 import Header from './components/Header/Header';
+import Hero from './components/Hero/Hero';
 import './styles/global.scss';
 
 function App() {
@@ -6,10 +7,7 @@ function App() {
     <div className="app">
       <Header />
       <main>
-        <div className="container">
-          <h1>Econverse - Vitrine de Produtos</h1>
-          <p>Conteúdo em desenvolvimento...</p>
-        </div>
+        <Hero />
       </main>
     </div>
   );

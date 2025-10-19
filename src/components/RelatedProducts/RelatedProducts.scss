@@ -1,14 +1,18 @@
 .related-products {
   width: 100%;
-  background-color: #FFFFFF;
   display: flex;
   justify-content: center;
   padding: 60px 0;
 
   &__container {
-    width: 1280px;
+    width: 1364px;
+    height: 613px;
     max-width: 100%;
-    padding: 0 20px;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    opacity: 1;
   }
 
   &__title-wrapper {
@@ -98,14 +102,18 @@
 
   &__carousel {
     position: relative;
+    width: 100%;
+    height: 500px;
     display: flex;
     align-items: center;
-    gap: 20px;
+    justify-content: space-between;
+    opacity: 1;
+    background-color: #FFFFFF;
   }
 
   &__arrow {
-    width: 40px;
-    height: 40px;
+    width: 32px;
+    height: 32px;
     background-color: transparent;
     border: none;
     cursor: pointer;
@@ -114,14 +122,16 @@
     justify-content: center;
     flex-shrink: 0;
     transition: transform 0.3s ease;
+    opacity: 1;
 
     &:hover {
       transform: scale(1.1);
     }
 
     img {
-      width: 24px;
-      height: 24px;
+      width: 32px;
+      height: 32px;
+      opacity: 1;
     }
 
     &--left {
@@ -134,47 +144,48 @@
   }
 
   &__products {
+    width: 1280px;
+    height: 500px;
     display: flex;
-    gap: 20px;
+    align-items: flex-start;
+    gap: 18px;
     overflow-x: auto;
+    overflow-y: hidden;
     scroll-behavior: smooth;
-    padding: 20px 0;
+    padding: 0;
+    opacity: 1;
+    background-color: #FFFFFF;
 
     &::-webkit-scrollbar {
-      height: 6px;
-    }
-
-    &::-webkit-scrollbar-track {
-      background: #F4F4F4;
-      border-radius: 10px;
-    }
-
-    &::-webkit-scrollbar-thumb {
-      background: #3019B2;
-      border-radius: 10px;
+      display: none;
     }
   }
 
   &__card {
     flex: 0 0 auto;
-    width: 260px;
-    background-color: #FFFFFF;
+    width: 304px;
+    height: 500px;
+    background: #FFFFFF;
     border-radius: 10px;
-    box-shadow: 0px 2px 9px 0px rgba(0, 0, 0, 0.15);
-    padding: 16px;
+    box-shadow: 0px 2px 8px 0px rgba(0, 0, 0, 0.1);
+    border: 1px solid #F0F0F0;
+    padding: 45px 12.39px 16px;
     display: flex;
     flex-direction: column;
-    gap: 12px;
+    justify-content: flex-start;
+    gap: 8px;
+    opacity: 1;
   }
 
   &__image-wrapper {
     width: 100%;
-    height: 260px;
+    height: 228px;
     display: flex;
     align-items: center;
     justify-content: center;
-    background-color: #F9F9F9;
+    background-color: #FFFFFF;
     border-radius: 8px;
+    opacity: 1;
   }
 
   &__image {
@@ -185,26 +196,30 @@
 
   &__description {
     font-family: 'Poppins', sans-serif;
-    font-weight: 400;
-    font-size: 12px;
-    line-height: 150%;
-    color: #000000;
-    min-height: 36px;
+    font-weight: 300;
+    font-size: 15px;
+    line-height: 100%;
+    letter-spacing: 0%;
+    color: #3F3F40;
+    opacity: 1;
+    min-height: 46px;
   }
 
   &__pricing {
     display: flex;
     flex-direction: column;
-    gap: 4px;
+    gap: 10px;
   }
 
   &__old-price {
     font-family: 'Poppins', sans-serif;
     font-weight: 400;
-    font-size: 12px;
+    font-size: 16px;
     line-height: 100%;
-    color: #9F9F9F;
+    letter-spacing: 0%;
+    color: #808080;
     text-decoration: line-through;
+    opacity: 1;
   }
 
   &__price {
@@ -212,38 +227,48 @@
     font-weight: 700;
     font-size: 20px;
     line-height: 100%;
-    color: #000000;
+    letter-spacing: 0%;
+    color: #3F3F40;
+    opacity: 1;
   }
 
   &__installments {
     font-family: 'Poppins', sans-serif;
     font-weight: 400;
-    font-size: 11px;
+    font-size: 12px;
     line-height: 100%;
-    color: #9F9F9F;
+    letter-spacing: 0%;
+    color: #3F3F40;
+    opacity: 1;
   }
 
   &__shipping {
     font-family: 'Poppins', sans-serif;
-    font-weight: 600;
-    font-size: 11px;
+    font-weight: 400;
+    font-size: 12px;
     line-height: 100%;
-    color: #3019B2;
+    letter-spacing: 0%;
+    color: #3442B5;
+    opacity: 1;
   }
 
   &__buy-button {
     width: 100%;
-    height: 40px;
+    height: 44px;
     background-color: #3019B2;
     color: #FFFFFF;
     font-family: 'Poppins', sans-serif;
-    font-weight: 600;
+    font-weight: 700;
     font-size: 14px;
     line-height: 100%;
+    letter-spacing: 0%;
+    text-align: center;
+    text-transform: uppercase;
     border: none;
-    border-radius: 5px;
+    border-radius: 4px;
     cursor: pointer;
     transition: background-color 0.3s ease;
+    opacity: 1;
 
     &:hover {
       background-color: #2614A0;

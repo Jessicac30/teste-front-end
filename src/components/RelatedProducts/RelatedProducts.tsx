@@ -1,5 +1,12 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import './RelatedProducts.scss';
+
+interface APIProduct {
+  productName: string;
+  descriptionShort: string;
+  photo: string;
+  price: number;
+}
 
 interface Product {
   id: number;
@@ -14,51 +21,101 @@ interface Product {
 
 const RelatedProducts: React.FC = () => {
   const [activeTab, setActiveTab] = useState('CELULAR');
+  const [products, setProducts] = useState<Product[]>([]);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState<string | null>(null);
+  const carouselRef = React.useRef<HTMLDivElement>(null);
 
   const tabs = ['CELULAR', 'ACESSÓRIOS', 'TABLETS', 'NOTEBOOKS', 'TVS', 'VER TODOS'];
 
-  const products: Product[] = [
-    {
-      id: 1,
-      name: 'Produto 1',
-      description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
-      image: '/src/assets/images/celular.png',
-      oldPrice: 30.90,
-      price: 28.90,
-      installments: 2,
-      installmentPrice: 49.95,
-    },
-    {
-      id: 2,
-      name: 'Produto 2',
-      description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
-      image: '/src/assets/images/celular.png',
-      oldPrice: 30.90,
-      price: 28.90,
-      installments: 2,
-      installmentPrice: 49.95,
-    },
-    {
-      id: 3,
-      name: 'Produto 3',
-      description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
-      image: '/src/assets/images/celular.png',
-      oldPrice: 30.90,
-      price: 28.90,
-      installments: 2,
-      installmentPrice: 49.95,
-    },
-    {
-      id: 4,
-      name: 'Produto 4',
-      description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
-      image: '/src/assets/images/celular.png',
-      oldPrice: 30.90,
-      price: 28.90,
-      installments: 2,
-      installmentPrice: 49.95,
-    },
-  ];
+  const scrollLeft = () => {
+    if (carouselRef.current) {
+      carouselRef.current.scrollBy({ left: -320, behavior: 'smooth' });
+    }
+  };
+
+  const scrollRight = () => {
+    if (carouselRef.current) {
+      carouselRef.current.scrollBy({ left: 320, behavior: 'smooth' });
+    }
+  };
+
+  useEffect(() => {
+    const fetchProducts = async () => {
+      try {
+        const response = await fetch('/api/teste-front-end/junior/tecnologia/lista-produtos/produtos.json');
+        const data = await response.json();
+
+        if (data.success && data.products) {
+          const formattedProducts: Product[] = data.products.map((product: APIProduct, index: number) => {
+            const price = product.price / 100; // Converter centavos para reais
+            const oldPrice = price * 1.1; // 10% a mais como preço antigo
+            const installments = 2;
+            const installmentPrice = price / installments;
+
+            return {
+              id: index + 1,
+              name: product.productName,
+              description: product.descriptionShort,
+              image: product.photo,
+              oldPrice,
+              price,
+              installments,
+              installmentPrice,
+            };
+          });
+
+          setProducts(formattedProducts);
+        }
+      } catch (error) {
+        console.error('Erro ao buscar produtos:', error);
+        setError('Erro ao carregar produtos. Por favor, tente novamente.');
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    fetchProducts();
+  }, []);
+
+  if (loading) {
+    return (
+      <section className="related-products">
+        <div className="related-products__container">
+          <div className="related-products__title-wrapper">
+            <h2 className="related-products__title">Produtos relacionados</h2>
+          </div>
+          <p style={{ textAlign: 'center', padding: '40px' }}>Carregando produtos...</p>
+        </div>
+      </section>
+    );
+  }
+
+  if (error) {
+    return (
+      <section className="related-products">
+        <div className="related-products__container">
+          <div className="related-products__title-wrapper">
+            <h2 className="related-products__title">Produtos relacionados</h2>
+          </div>
+          <p style={{ textAlign: 'center', padding: '40px', color: 'red' }}>{error}</p>
+        </div>
+      </section>
+    );
+  }
+
+  if (products.length === 0) {
+    return (
+      <section className="related-products">
+        <div className="related-products__container">
+          <div className="related-products__title-wrapper">
+            <h2 className="related-products__title">Produtos relacionados</h2>
+          </div>
+          <p style={{ textAlign: 'center', padding: '40px' }}>Nenhum produto encontrado.</p>
+        </div>
+      </section>
+    );
+  }
 
   return (
     <section className="related-products">
@@ -80,11 +137,15 @@ const RelatedProducts: React.FC = () => {
         </div>
 
         <div className="related-products__carousel">
-          <button className="related-products__arrow related-products__arrow--left">
+          <button
+            className="related-products__arrow related-products__arrow--left"
+            onClick={scrollLeft}
+            aria-label="Produto anterior"
+          >
             <img src="/src/assets/icons/Group2411.png" alt="Anterior" />
           </button>
 
-          <div className="related-products__products">
+          <div className="related-products__products" ref={carouselRef}>
             {products.map((product) => (
               <div key={product.id} className="related-products__card">
                 <div className="related-products__image-wrapper">
@@ -111,7 +172,11 @@ const RelatedProducts: React.FC = () => {
             ))}
           </div>
 
-          <button className="related-products__arrow related-products__arrow--right">
+          <button
+            className="related-products__arrow related-products__arrow--right"
+            onClick={scrollRight}
+            aria-label="Próximo produto"
+          >
             <img src="/src/assets/icons/Group2412.png" alt="Próximo" />
           </button>
         </div>

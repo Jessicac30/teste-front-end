@@ -5,9 +5,18 @@ const Header = () => {
     <header className="header">
       <div className="header__top-bar">
         <div className="header__top-info">
-          <span className="header__shield"> Compra 100% segura</span>
-          <span className="header__shipping"> Frete grátis acima de R$ 200</span>
-          <span className="header__installments"> Parcele suas compras</span>
+          <span className="header__shield">
+            <img src="/src/assets/icons/shieldCheck.png" alt="Shield" />
+            Compra <span className="highlight">100% segura</span>
+          </span>
+          <span className="header__shipping">
+            <img src="/src/assets/icons/truck.png" alt="Truck" />
+            <span className="highlight">Frete grátis</span> acima de R$ 200
+          </span>
+          <span className="header__installments">
+            <img src="/src/assets/icons/creditCard.png" alt="Credit Card" />
+            <span className="highlight">Parcele</span> suas compras
+          </span>
         </div>
       </div>
 

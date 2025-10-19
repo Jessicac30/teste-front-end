@@ -6,7 +6,7 @@
 
   // Top bar com informações
   &__top-bar {
-    background-color: $background-light;
+    background-color: $white;
     padding: $spacing-xs 0;
     font-size: $font-size-sm;
   }
@@ -14,16 +14,39 @@
   &__top-info {
     max-width: 1280px;
     margin: 0 auto;
-    padding: 0 80px;
     display: flex;
     justify-content: center;
-    gap: $spacing-lg;
-    color: $text-light;
+    align-items: center;
+    gap: 40px;
+    color: #9F9F9F;
 
     span {
       display: flex;
       align-items: center;
-      gap: 6px;
+      gap: 8px;
+      font-family: 'Poppins', sans-serif;
+      font-weight: 600;
+      font-size: 12px;
+      line-height: 100%;
+      letter-spacing: 0%;
+      text-align: center;
+      white-space: nowrap;
+
+      img {
+        width: 16px;
+        height: 16px;
+        object-fit: contain;
+        flex-shrink: 0;
+      }
+    }
+  }
+
+  &__shield,
+  &__shipping,
+  &__installments {
+    .highlight {
+      color: #3019B2;
+      font-weight: 600;
     }
   }
 

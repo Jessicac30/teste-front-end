@@ -7,8 +7,6 @@ function App() {
       <Header />
       <main>
         <div className="container">
-          <h1>Econverse - Vitrine de Produtos</h1>
-          <p>Conteúdo em desenvolvimento...</p>
         </div>
       </main>
     </div>

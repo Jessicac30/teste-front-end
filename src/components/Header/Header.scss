@@ -52,20 +52,21 @@
 
   // Área principal do header (logo, busca, ações)
   &__main {
-    height: 144px;
+    height: 72px;
     display: flex;
     align-items: center;
-    box-shadow: $shadow-sm;
+    margin-top: 4px;
   }
 
   &__container {
     max-width: 1280px;
+    width: 1280px;
     margin: 0 auto;
-    padding: 0 80px;
-    width: 100%;
+    padding: 0;
     display: flex;
     align-items: center;
-    gap: $spacing-lg;
+    border-top: 1px solid #E5E5E5;
+    height: 100%;
   }
 
   &__logo {
@@ -85,10 +86,13 @@
     width: 630px;
     height: 48px;
     display: flex;
-    background-color: $background-light;
+    background-color: #F6F5F2;
     border-radius: 10px;
     overflow: hidden;
     flex-shrink: 0;
+    flex: 1;
+    max-width: 630px;
+    margin: 0 auto;
   }
 
   &__search-input {
@@ -96,11 +100,20 @@
     border: none;
     background: transparent;
     padding: 0 $spacing-md;
-    font-size: $font-size-md;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 100%;
+    letter-spacing: 0%;
     color: $text-dark;
 
     &::placeholder {
       color: $text-light;
+      font-family: 'Poppins', sans-serif;
+      font-weight: 500;
+      font-size: 14px;
+      line-height: 100%;
+      letter-spacing: 0%;
     }
   }
 
@@ -124,8 +137,9 @@
   // Ações (favoritos, conta, carrinho)
   &__actions {
     display: flex;
-    gap: $spacing-md;
+    gap: 16px;
     align-items: center;
+    margin-left: auto;
   }
 
   &__action {
@@ -171,22 +185,35 @@
 
   // Navegação
   &__nav {
-    background-color: $secondary-color;
-    padding: $spacing-sm 0;
+    background-color: #FFFFFF;
+    width: 1280px;
+    height: 40px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    box-shadow: 0px 8px 16px 0px #3930131F;
   }
 
   &__menu {
+    width: 1141px;
+    height: 20px;
+    margin: 0 auto;
     display: flex;
-    gap: $spacing-lg;
+    gap: 40px;
     align-items: center;
-    justify-content: center;
+    justify-content: space-between;
+    flex-wrap: nowrap;
 
     li {
       a {
-        color: $white;
-        font-size: $font-size-sm;
+        color: #9F9F9F;
+        font-family: 'Poppins', sans-serif;
         font-weight: 600;
-        letter-spacing: 0.5px;
+        font-size: 12px;
+        line-height: 100%;
+        letter-spacing: 0%;
+        text-align: center;
+        text-transform: uppercase;
         transition: opacity $transition-fast;
 
         &:hover {
@@ -197,7 +224,7 @@
   }
 
   &__menu-highlight {
-    color: #FFD700 !important;
+    color: #3019B2 !important;
   }
 
   &__menu-badge {
@@ -205,58 +232,300 @@
       display: flex;
       align-items: center;
       gap: 6px;
+
+      img {
+        width: 20px;
+        height: 20px;
+        object-fit: contain;
+      }
     }
   }
 
   // Responsivo
+  @media (max-width: 1280px) {
+    &__container {
+      width: 100%;
+      padding: 0 20px;
+    }
+
+    &__top-info {
+      width: 100%;
+      padding: 0 20px;
+      gap: 20px;
+    }
+
+    &__nav {
+      width: 100%;
+      padding: 0 20px;
+    }
+
+    &__menu {
+      width: 100%;
+      gap: 20px;
+    }
+  }
+
   @media (max-width: $breakpoint-desktop) {
     &__container {
       padding: 0 $spacing-md;
+      gap: 12px;
     }
 
     &__top-info {
       padding: 0 $spacing-md;
       gap: $spacing-md;
       font-size: 11px;
+
+      span {
+        font-size: 11px;
+        gap: 4px;
+
+        img {
+          width: 14px;
+          height: 14px;
+        }
+      }
+    }
+
+    &__search {
+      width: 400px;
+      max-width: 400px;
+    }
+
+    &__actions {
+      gap: 12px;
+    }
+
+    &__menu {
+      gap: 16px;
+      font-size: 11px;
+
+      li a {
+        font-size: 11px;
+      }
     }
   }
 
   @media (max-width: $breakpoint-tablet) {
     &__main {
       height: auto;
-      padding: $spacing-md 0;
+      padding: 12px 0;
+      margin-top: 8px;
     }
 
     &__container {
       flex-wrap: wrap;
-      gap: $spacing-sm;
+      gap: 12px;
+      padding: 0 16px;
+      border-top: none;
+      border-bottom: none;
     }
 
     &__logo {
-      width: 100px;
-      height: 30px;
+      width: 80px;
+      height: 24px;
     }
 
     &__search {
       order: 3;
       width: 100%;
       max-width: 100%;
+      margin: 0;
+      height: 40px;
+      flex: none;
+    }
+
+    &__search-button {
+      width: 40px;
+      height: 40px;
+    }
+
+    &__search-icon {
+      width: 20px;
+      height: 20px;
     }
 
     &__actions {
       margin-left: auto;
+      gap: 8px;
+    }
+
+    &__action {
+      width: 32px;
+      height: 32px;
+    }
+
+    &__icon {
+      width: 18px;
+      height: 18px;
+    }
+
+    &__nav {
+      width: 100%;
+      height: auto;
+      padding: 8px 0;
     }
 
     &__menu {
+      width: 100%;
       flex-wrap: wrap;
-      gap: $spacing-sm;
-      font-size: 11px;
+      gap: 8px;
+      font-size: 10px;
+      justify-content: center;
+
+      li a {
+        font-size: 10px;
+        white-space: nowrap;
+      }
+    }
+
+    &__menu-badge {
+      a {
+        img {
+          width: 16px;
+          height: 16px;
+        }
+      }
     }
 
     &__top-info {
-      flex-direction: column;
+      flex-direction: row;
+      flex-wrap: wrap;
+      justify-content: center;
       align-items: center;
-      gap: 4px;
+      gap: 8px;
+      padding: 0 16px;
+
+      span {
+        width: auto;
+        height: auto;
+        font-size: 10px;
+        gap: 4px;
+
+        img {
+          width: 12px;
+          height: 12px;
+        }
+      }
+    }
+
+    &__top-bar {
+      padding: 8px 0;
+    }
+  }
+
+  @media (max-width: 480px) {
+    &__logo {
+      width: 70px;
+      height: 21px;
+    }
+
+    &__top-info {
+      font-size: 8px;
+      gap: 6px;
+      padding: 0 8px;
+      justify-content: space-between;
+
+      span {
+        font-size: 8px;
+        gap: 3px;
+        flex: 0 0 auto;
+
+        img {
+          width: 10px;
+          height: 10px;
+        }
+      }
+    }
+
+    &__container {
+      padding: 0 12px;
+      gap: 8px;
+    }
+
+    &__search {
+      height: 36px;
+    }
+
+    &__search-input {
+      font-size: 12px;
+      padding: 0 8px;
+
+      &::placeholder {
+        font-size: 12px;
+      }
+    }
+
+    &__search-button {
+      width: 36px;
+      height: 36px;
+    }
+
+    &__search-icon {
+      width: 18px;
+      height: 18px;
+    }
+
+    &__nav {
+      width: 100%;
+      padding: 0 2px;
+    }
+
+    &__menu {
+      width: 100%;
+      font-size: 6.5px;
+      gap: 1px;
+      padding: 0 2px;
+      flex-wrap: nowrap;
+      justify-content: space-between;
+
+      li {
+        flex-shrink: 1;
+
+        a {
+          font-size: 6.5px;
+          padding: 0 1px;
+          white-space: nowrap;
+        }
+      }
+    }
+
+    &__menu-badge {
+      a {
+        display: flex;
+        align-items: center;
+        gap: 1px;
+
+        img {
+          width: 9px;
+          height: 9px;
+          object-fit: contain;
+          flex-shrink: 0;
+          margin-bottom: 1px;
+        }
+      }
+    }
+
+    &__actions {
+      gap: 6px;
+    }
+
+    &__action {
+      width: 28px;
+      height: 28px;
+    }
+
+    &__icon {
+      width: 16px;
+      height: 16px;
+    }
+
+    &__top-bar {
+      padding: 6px 0;
+    }
+
+    &__main {
+      padding: 10px 0;
     }
   }
 }

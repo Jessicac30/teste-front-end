@@ -2,6 +2,7 @@ import Header from './components/Header/Header';
 import Hero from './components/Hero/Hero';
 import Categories from './components/Categories/Categories';
 import RelatedProducts from './components/RelatedProducts/RelatedProducts';
+import Partners from './components/Partners/Partners';
 import './styles/global.scss';
 
 function App() {
@@ -11,7 +12,10 @@ function App() {
       <main>
         <Hero />
         <Categories />
-        <RelatedProducts />
+        <RelatedProducts showAllTabs={true} />
+        <Partners />
+        <RelatedProducts showAllTabs={false} />
+        <Partners />
       </main>
     </div>
   );

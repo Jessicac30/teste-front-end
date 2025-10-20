@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import './RelatedProducts.scss';
+import ProductModal from '../ProductModal/ProductModal';
 
 interface APIProduct {
   productName: string;
@@ -24,6 +25,8 @@ const RelatedProducts: React.FC = () => {
   const [products, setProducts] = useState<Product[]>([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
+  const [selectedProduct, setSelectedProduct] = useState<Product | null>(null);
+  const [isModalOpen, setIsModalOpen] = useState(false);
   const carouselRef = React.useRef<HTMLDivElement>(null);
 
   const tabs = ['CELULAR', 'ACESSÓRIOS', 'TABLETS', 'NOTEBOOKS', 'TVS', 'VER TODOS'];
@@ -38,6 +41,16 @@ const RelatedProducts: React.FC = () => {
     if (carouselRef.current) {
       carouselRef.current.scrollBy({ left: 320, behavior: 'smooth' });
     }
+  };
+
+  const handleProductClick = (product: Product) => {
+    setSelectedProduct(product);
+    setIsModalOpen(true);
+  };
+
+  const handleCloseModal = () => {
+    setIsModalOpen(false);
+    setSelectedProduct(null);
   };
 
   useEffect(() => {
@@ -147,7 +160,11 @@ const RelatedProducts: React.FC = () => {
 
           <div className="related-products__products" ref={carouselRef}>
             {products.map((product) => (
-              <div key={product.id} className="related-products__card">
+              <div
+                key={product.id}
+                className="related-products__card"
+                onClick={() => handleProductClick(product)}
+              >
                 <div className="related-products__image-wrapper">
                   <img
                     src={product.image}
@@ -181,6 +198,12 @@ const RelatedProducts: React.FC = () => {
           </button>
         </div>
       </div>
+
+      <ProductModal
+        product={selectedProduct}
+        isOpen={isModalOpen}
+        onClose={handleCloseModal}
+      />
     </section>
   );
 };

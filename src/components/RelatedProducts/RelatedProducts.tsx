@@ -20,7 +20,11 @@ interface Product {
   installmentPrice: number;
 }
 
-const RelatedProducts: React.FC = () => {
+interface RelatedProductsProps {
+  showAllTabs?: boolean;
+}
+
+const RelatedProducts: React.FC<RelatedProductsProps> = ({ showAllTabs = true }) => {
   const [activeTab, setActiveTab] = useState('CELULAR');
   const [products, setProducts] = useState<Product[]>([]);
   const [loading, setLoading] = useState(true);
@@ -29,7 +33,9 @@ const RelatedProducts: React.FC = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const carouselRef = React.useRef<HTMLDivElement>(null);
 
-  const tabs = ['CELULAR', 'ACESSÓRIOS', 'TABLETS', 'NOTEBOOKS', 'TVS', 'VER TODOS'];
+  const tabs = showAllTabs
+    ? ['CELULAR', 'ACESSÓRIOS', 'TABLETS', 'NOTEBOOKS', 'TVS', 'VER TODOS']
+    : ['Ver todos'];
 
   const scrollLeft = () => {
     if (carouselRef.current) {
@@ -137,11 +143,11 @@ const RelatedProducts: React.FC = () => {
           <h2 className="related-products__title">Produtos relacionados</h2>
         </div>
 
-        <div className="related-products__tabs">
+        <div className={`related-products__tabs ${!showAllTabs ? 'related-products__tabs--single' : ''}`}>
           {tabs.map((tab) => (
             <button
               key={tab}
-              className={`related-products__tab ${activeTab === tab ? 'related-products__tab--active' : ''}`}
+              className={`related-products__tab ${activeTab === tab ? 'related-products__tab--active' : ''} ${!showAllTabs ? 'related-products__tab--single' : ''}`}
               onClick={() => setActiveTab(tab)}
             >
               {tab}

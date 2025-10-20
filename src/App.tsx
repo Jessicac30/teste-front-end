@@ -12,7 +12,9 @@ function App() {
       <main>
         <Hero />
         <Categories />
-        <RelatedProducts />
+        <RelatedProducts showAllTabs={true} />
+        <Partners />
+        <RelatedProducts showAllTabs={false} />
         <Partners />
       </main>
     </div>

@@ -62,7 +62,18 @@ const RelatedProducts: React.FC<RelatedProductsProps> = ({ showAllTabs = true })
   useEffect(() => {
     const fetchProducts = async () => {
       try {
-        const response = await fetch('/teste-front-end/junior/tecnologia/lista-produtos/produtos.json');
+        // Usa caminho relativo - funciona tanto em dev (proxy Vite) quanto em produção (rewrite Vercel)
+        const response = await fetch('/teste-front-end/junior/tecnologia/lista-produtos/produtos.json', {
+          method: 'GET',
+          headers: {
+            'Accept': 'application/json',
+          },
+        });
+        
+        if (!response.ok) {
+          throw new Error(`HTTP error! status: ${response.status}`);
+        }
+        
         const data = await response.json();
 
         if (data.success && data.products) {

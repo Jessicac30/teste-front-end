@@ -62,7 +62,7 @@ const RelatedProducts: React.FC<RelatedProductsProps> = ({ showAllTabs = true })
   useEffect(() => {
     const fetchProducts = async () => {
       try {
-        const response = await fetch('https://app.econverse.com.br/teste-front-end/junior/tecnologia/lista-produtos/produtos.json');
+        const response = await fetch('/teste-front-end/junior/tecnologia/lista-produtos/produtos.json');
         const data = await response.json();
 
         if (data.success && data.products) {

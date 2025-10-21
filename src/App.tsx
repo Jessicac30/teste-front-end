@@ -3,6 +3,7 @@ import Hero from './components/Hero/Hero';
 import Categories from './components/Categories/Categories';
 import RelatedProducts from './components/RelatedProducts/RelatedProducts';
 import Partners from './components/Partners/Partners';
+import Newsletter from './components/Newsletter/Newsletter';
 import './styles/global.scss';
 
 function App() {
@@ -16,6 +17,7 @@ function App() {
         <Partners />
         <RelatedProducts showAllTabs={false} />
         <Partners />
+        <Newsletter />
       </main>
     </div>
   );

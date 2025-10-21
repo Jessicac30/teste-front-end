@@ -15,7 +15,7 @@ const Hero = () => {
           <button className="hero__cta">Ver produto</button>
         </div>
         <div className="hero__image">
-          <img src="/src/assets/images/Rectangle 250.png" alt="Black Friday" />
+          <img src="/assets/images/Rectangle 250.png" alt="Black Friday" />
         </div>
       </div>
     </section>

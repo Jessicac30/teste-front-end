@@ -6,15 +6,15 @@ const Header = () => {
       <div className="header__top-bar">
         <div className="header__top-info">
           <span className="header__shield">
-            <img src="/src/assets/icons/info/ShieldCheck.png" alt="Shield" />
+            <img src="/assets/icons/info/ShieldCheck.png" alt="Shield" />
             Compra <span className="highlight">100% segura</span>
           </span>
           <span className="header__shipping">
-            <img src="/src/assets/icons/info/Truck.png" alt="Truck" />
+            <img src="/assets/icons/info/Truck.png" alt="Truck" />
             <span className="highlight">Frete grátis</span> acima de R$ 200
           </span>
           <span className="header__installments">
-            <img src="/src/assets/icons/info/CreditCard.png" alt="Credit Card" />
+            <img src="/assets/icons/info/CreditCard.png" alt="Credit Card" />
             <span className="highlight">Parcele</span> suas compras
           </span>
         </div>
@@ -23,7 +23,7 @@ const Header = () => {
       <div className="header__main">
         <div className="header__container">
           <div className="header__logo">
-            <img src="/src/assets/logo/econverse-logo.png" alt="Econverse" />
+            <img src="/assets/logo/econverse-logo.png" alt="Econverse" />
           </div>
 
           <div className="header__search">
@@ -34,7 +34,7 @@ const Header = () => {
             />
             <button className="header__search-button" aria-label="Buscar">
               <img
-                src="/src/assets/icons/header/lupa.png"
+                src="/assets/icons/header/lupa.png"
                 alt="Buscar"
                 className="header__search-icon"
               />
@@ -44,28 +44,28 @@ const Header = () => {
           <div className="header__actions">
             <button className="header__action" aria-label="Grupo">
               <img
-                src="/src/assets/icons/header/Group.png"
+                src="/assets/icons/header/Group.png"
                 alt="Grupo"
                 className="header__icon"
               />
             </button>
             <button className="header__action" aria-label="Favoritos">
               <img
-                src="/src/assets/icons/header/Heart.png"
+                src="/assets/icons/header/Heart.png"
                 alt="Favoritos"
                 className="header__icon"
               />
             </button>
             <button className="header__action" aria-label="Conta">
               <img
-                src="/src/assets/icons/header/user.png"
+                src="/assets/icons/header/user.png"
                 alt="Minha Conta"
                 className="header__icon"
               />
             </button>
             <button className="header__action header__cart" aria-label="Carrinho">
               <img
-                src="/src/assets/icons/header/carrinho.png"
+                src="/assets/icons/header/carrinho.png"
                 alt="Carrinho"
                 className="header__icon"
               />
@@ -85,7 +85,7 @@ const Header = () => {
             <li><a href="#ofertas" className="header__menu-highlight">OFERTAS DO DIA</a></li>
             <li className="header__menu-badge">
               <a href="#assinatura">
-                <img src="/src/assets/icons/info/CrownSimple.png" alt="Assinatura" />
+                <img src="/assets/icons/info/CrownSimple.png" alt="Assinatura" />
                 ASSINATURA
               </a>
             </li>

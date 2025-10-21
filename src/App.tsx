@@ -4,6 +4,8 @@ import Categories from './components/Categories/Categories';
 import RelatedProducts from './components/RelatedProducts/RelatedProducts';
 import Partners from './components/Partners/Partners';
 import Brands from './components/Brands/Brands';
+import Newsletter from './components/Newsletter/Newsletter';
+import Footer from './components/Footer/Footer';
 import './styles/global.scss';
 
 function App() {
@@ -19,7 +21,9 @@ function App() {
         <Partners />
         <Brands />
         <RelatedProducts showAllTabs={false} />
+        <Newsletter />
       </main>
+      <Footer />
     </div>
   );
 }

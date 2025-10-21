@@ -3,13 +3,13 @@ import './Categories.scss';
 
 const Categories: React.FC = () => {
   const categories = [
-    { id: 1, name: 'Tecnologia', icon: '/src/assets/icons/categories/pc.png' },
-    { id: 2, name: 'Supermercado', icon: '/src/assets/icons/categories/supermercados 1.png' },
-    { id: 3, name: 'Bebidas', icon: '/src/assets/icons/categories/whiskey.png' },
-    { id: 4, name: 'Ferramentas', icon: '/src/assets/icons/categories/ferramentas1.png' },
-    { id: 5, name: 'Saúde', icon: '/src/assets/icons/categories/saude.png' },
-    { id: 6, name: 'Esportes e Fitness', icon: '/src/assets/icons/categories/corrida1.png' },
-    { id: 7, name: 'Moda', icon: '/src/assets/icons/categories/moda1.png' },
+    { id: 1, name: 'Tecnologia', icon: '/assets/icons/categories/pc.png' },
+    { id: 2, name: 'Supermercado', icon: '/assets/icons/categories/supermercados 1.png' },
+    { id: 3, name: 'Bebidas', icon: '/assets/icons/categories/whiskey.png' },
+    { id: 4, name: 'Ferramentas', icon: '/assets/icons/categories/ferramentas1.png' },
+    { id: 5, name: 'Saúde', icon: '/assets/icons/categories/saude.png' },
+    { id: 6, name: 'Esportes e Fitness', icon: '/assets/icons/categories/corrida1.png' },
+    { id: 7, name: 'Moda', icon: '/assets/icons/categories/moda1.png' },
   ];
 
   return (

@@ -62,7 +62,7 @@ const RelatedProducts: React.FC<RelatedProductsProps> = ({ showAllTabs = true })
   useEffect(() => {
     const fetchProducts = async () => {
       try {
-        const response = await fetch('/api/teste-front-end/junior/tecnologia/lista-produtos/produtos.json');
+        const response = await fetch('https://app.econverse.com.br/teste-front-end/junior/tecnologia/lista-produtos/produtos.json');
         const data = await response.json();
 
         if (data.success && data.products) {
@@ -161,7 +161,7 @@ const RelatedProducts: React.FC<RelatedProductsProps> = ({ showAllTabs = true })
             onClick={scrollLeft}
             aria-label="Produto anterior"
           >
-            <img src="/src/assets/icons/Group2411.png" alt="Anterior" />
+            <img src="/assets/icons/Group2411.png" alt="Anterior" />
           </button>
 
           <div className="related-products__products" ref={carouselRef}>
@@ -200,7 +200,7 @@ const RelatedProducts: React.FC<RelatedProductsProps> = ({ showAllTabs = true })
             onClick={scrollRight}
             aria-label="Próximo produto"
           >
-            <img src="/src/assets/icons/Group2412.png" alt="Próximo" />
+            <img src="/assets/icons/Group2412.png" alt="Próximo" />
           </button>
         </div>
       </div>

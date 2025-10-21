@@ -4,7 +4,7 @@ Projeto desenvolvido como teste técnico para a vaga de Desenvolvedor Front-End 
 
 ## Demonstração
 
-![Demonstração do Projeto](./src/assets/video1.gif)
+![Demonstração do Projeto](./src/assets/Gravando1.gif)
 
 ## Tecnologias Utilizadas
 

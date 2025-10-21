@@ -1,0 +1,28 @@
+{
+  "rewrites": [
+    {
+      "source": "/teste-front-end/:path*",
+      "destination": "https://app.econverse.com.br/teste-front-end/:path*"
+    }
+  ],
+  "headers": [
+    {
+      "source": "/teste-front-end/:path*",
+      "headers": [
+        {
+          "key": "Access-Control-Allow-Origin",
+          "value": "*"
+        },
+        {
+          "key": "Access-Control-Allow-Methods",
+          "value": "GET, OPTIONS"
+        },
+        {
+          "key": "Access-Control-Allow-Headers",
+          "value": "Content-Type"
+        }
+      ]
+    }
+  ]
+}
+
